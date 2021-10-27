@@ -66,7 +66,7 @@ Installation
 
 You can install multihistogram (or upgrade from a previous release) with the following command:
 ```stata
-net install multihistogram, from(https://raw.githubusercontent.com/mdroste/stata-multihistogram/master/) replace
+net install multihistogram, from(https://raw.githubusercontent.com/mdroste/stata-multihistogram/main/) replace
 ```
 
 Usage
