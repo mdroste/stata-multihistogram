@@ -80,7 +80,7 @@ multihistogram bp_before bp_after
 
 You can specify twoway graph options by including them in the optional argument twopt(). For instance, to specify legend titles:
 ```stata
-multihistogram bp_before bp_after, twopt(legend(order 1 "Before" 2 "After")))
+multihistogram bp_before bp_after, twopt(legend(order(1 "Before" 2 "After")))
 ```
 
 multihistogram allows global 'if'/'in' expressions to be applied to the data before processing in the usual way. One can also specify ifs for each series separately with if1(), if2(), if3(), if4(), which may be useful if you have one series that you want to produce overlaid histograms for depending on conditional ifs (i.e. long data).
@@ -92,11 +92,11 @@ To-do
 
 This program is incomplete (though perhaps still useful).
 
-[] - Write an internal help-file
-[] - Color selection (I like my defaults though)
-[] - Ability to pass in twoway, histogram options for individual series (i.e. turn off outlines)
+- [ ] Write an internal help-file
+- [ ] Color selection (I like my defaults though)
+- [ ] Ability to pass in twoway, histogram options for individual series (i.e. turn off outlines)
 
 License
 ---------------------------------
 
-multihistogram is [MIT-licensed](https://github.com/mdroste/stata-multihistogram/blob/master/LICENSE).
+multihistogram is [MIT-licensed](https://github.com/mdroste/stata-multihistogram/blob/main/LICENSE).
