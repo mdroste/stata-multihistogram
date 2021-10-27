@@ -42,11 +42,11 @@ sum bp_after
 local min2 = r(min)
 local max2 = r(max)
 local n2 = r(N)
-local min = min(`min1`,`min2')
-local max = max(`max1`,`max2')
+local min = min(`min1',`min2')
+local max = max(`max1',`max2')
 local n = min(`n1',`n2')
-bins = min(sqrt(`n'),10*ln(`n')/ln(10))
-width = (`max'-`min')/`bins'
+local bins = min(sqrt(`n'),10*ln(`n')/ln(10))
+local width = (`max'-`min')/`bins'
 twoway (histogram bp_before, start(`min') width(`width') color(ebblue%40)) (histogram bp_after, start(`min') width(`width') color(maroon%40))
 ```
 
