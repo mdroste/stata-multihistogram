@@ -24,20 +24,15 @@ Default Stata allows users to construct overlaid histograms using the -twoway- g
 sysuse bpwide
 twoway (histogram bp_before, color(ebblue%40)) (histogram bp_after, color(maroon%40))
 ```
-
-Yielding a graph that looks like:
-
 ![Figure 1: twoway histogram](figs/fig1.png)
 
-With multihistogram, we can align the bins in a single line:
+With multihistogram, we can produce a histogram like the above with aligned bins in a single line:
 ```stata
 multihistogram bp_before bp_after
 ```
-
-Yielding a graph that looks like:
-
 ![Figure 2: multihistogram](figs/fig2.png)
-Which is equivalent (with two variables) to the following Stata code:
+
+This is equivalent (with two variables) to the following Stata code:
 ```stata
 sum bp_before
 local min1 = r(min)
