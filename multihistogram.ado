@@ -120,7 +120,7 @@ program define multihistogram, rclass
 	}
 	
 	* add legend
-	local twoway_cmd `twoway_cmd', legend(ring(0) pos(2) order(`legend_labels'))
+	local twoway_cmd `twoway_cmd', legend(order(`legend_labels'))
 	di `"`legend_labels'"'
 	
 	* add user supplied options
