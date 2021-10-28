@@ -1,4 +1,4 @@
 
-v 0.9
+v 0.92
 d Michael Droste, mdroste@fas.harvard.edu
 p 'multihistogram': overlaid aligned histograms in Stata

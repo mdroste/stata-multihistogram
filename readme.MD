@@ -11,7 +11,7 @@ multihistogram
 
 Neatly aligned overlaid histograms in Stata
 
-`version 0.9 27oct2021`
+`version 0.92 28oct2021`
 
 
 Overview
@@ -19,7 +19,9 @@ Overview
 
 multihistogram allows Stata users to easily construct overlaid histograms with aligned bins in Stata.
 
-Default Stata allows users to construct overlaid histograms using the -twoway- graph command. However, when multiple histogram graph types are specified, bins are constructed separately for each series:
+Default Stata allows users to construct overlaid histograms using the -twoway- graph command. However, when multiple histogram graph types are specified, bins are constructed separately for each series.
+
+The following example and figure illustrates the default behavior of twoway, histogram() for overlaid histograms.
 ```stata
 sysuse bpwide
 twoway (histogram bp_before, color(ebblue%40)) (histogram bp_after, color(maroon%40))
@@ -49,6 +51,8 @@ local bins = min(sqrt(`n'),10*ln(`n')/ln(10))
 local width = (`max'-`min')/`bins'
 twoway (histogram bp_before, start(`min') width(`width') color(ebblue%40)) (histogram bp_after, start(`min') width(`width') color(maroon%40))
 ```
+
+Notice that multihistogram also changes the behavior of the legend and the aesthetics of the bar chart slightly. The default behavior of twoway, histogram() does not print informative legend labels (simply 'Density' for both series) corresponding to either data series names or labels. Multihistogram will produce legend labels that correspond to variable labels if those are present, and variable names otherwise. This change and any others is revertable, since the user can pass any familiar twoway arguments (like legend, title, or xlabel) into multihistogram.
 
 Prequisites
 ---------------------------------
