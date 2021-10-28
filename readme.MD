@@ -49,10 +49,11 @@ local max = max(`max1',`max2')
 local n = min(`n1',`n2')
 local bins = min(sqrt(`n'),10*ln(`n')/ln(10))
 local width = (`max'-`min')/`bins'
-twoway (histogram bp_before, start(`min') width(`width') color(ebblue%40)) (histogram bp_after, start(`min') width(`width') color(maroon%40))
+twoway (histogram bp_before, start(`min') width(`width') color(ebblue%40)) (histogram bp_after, start(`min') width(`width') color(maroon%40)), legend(order(1 "Before" 2 "After"))
 ```
 
 Notice that multihistogram also changes the behavior of the legend and the aesthetics of the bar chart slightly. The default behavior of twoway, histogram() does not print informative legend labels (simply 'Density' for both series) corresponding to either data series names or labels. Multihistogram will produce legend labels that correspond to variable labels if those are present, and variable names otherwise. This change and any others is revertable, since the user can pass any familiar twoway arguments (like legend, title, or xlabel) into multihistogram.
+
 
 Prequisites
 ---------------------------------
@@ -68,18 +69,21 @@ You can install multihistogram (or upgrade from a previous release) with the fol
 net install multihistogram, from(https://raw.githubusercontent.com/mdroste/stata-multihistogram/main/) replace
 ```
 
+
 Usage
 ---------------------------------
 
-Basic usage of multihistogram is simply to type multihistogram followed by a varlist of up to 4 variables.
+The following Stata snippet demonstrates basic usage of multihistogram to produce an overlaid histogram with two variables:
 ```stata
 sysuse bpwide
 multihistogram bp_before bp_after
 ```
 
+Up to four variables are supported, and this constraint is entirely for readability; these graphs become difficult to interpret with more than a few series.
+
 You can specify twoway graph options by including them in the optional argument twopt(). For instance, to specify legend titles:
 ```stata
-multihistogram bp_before bp_after, twopt(legend(order(1 "Before" 2 "After")))
+multihistogram bp_before bp_after, twopt(title("Figure title") name(fig_xx, replace) ylabel("x axis label") legend(order(1 "Legend label 1" 2 "Legend label 2")))
 ```
 
 multihistogram allows global 'if'/'in' expressions to be applied to the data before processing in the usual way. One can also specify ifs for each series separately with if1(), if2(), if3(), if4(), which may be useful if you have one series that you want to produce overlaid histograms for depending on conditional ifs (i.e. long data).
