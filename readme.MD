@@ -58,7 +58,7 @@ Notice that multihistogram also changes the behavior of the legend and the aesth
 Prequisites
 ---------------------------------
 
-multhistogram requires Stata 14 or higher, since color opacities are used by default. Overlaid histograms generally look pretty terrible otherwise.
+multhistogram requires Stata 14 or higher, since this program makes use of graph opacity options introduced in that version.
 
 
 Installation
